@@ -1,20 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Local Storage Capacitor
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>Valor da Variável Local: {{variavelLocal}}</strong>
+
+    <br>
+    <ion-button (click)="ler()" expand="full">Ler</ion-button>
+
+    <ion-button (click)="gravarMax()" expand="full">Gravar Max</ion-button>
+
+    <ion-button (click)="gravarTed()" expand="full">Gravar Ted</ion-button>
+
+    <ion-button (click)="remover()" expand="full">Remover</ion-button>
+
+    <br>
+    <ion-button (click)="gravarVetor()" expand="full">Gravar vetor</ion-button>
+    <ion-button (click)="apagarVetor()" expand="full">Apagar vetor</ion-button>
+    <ion-button (click)="lerVetor()" expand="full">Ler vetor</ion-button>
+
+    <ion-input placeholder="Nome" [(ngModel)]="formulario.nome">Nome</ion-input>
+    <ion-input placeholder="Telefone" [(ngModel)]="formulario.telefone">Telefone</ion-input>
+
+    <ion-button (click)="inserirVetor()" expand="full">Inserir</ion-button>
+
+
+    <ion-list>
+      <ion-item *ngFor="let aluno of listaAlunos">
+        <ion-label>{{aluno.nome}}</ion-label>
+        <p>{{aluno.telefone}}</p>
+      </ion-item>
+  </ion-list>
+
   </div>
 </ion-content>
