@@ -86,9 +86,18 @@ export class HomePage {
 
   formulario: any = {nome: '', telefone: '' };
   async inserirVetor() {
+    //faz a leitura do localStorage
     const { value } = await Storage.get({ key: 'students' });
     this.listaAlunos = JSON.parse(value);
+    
+    //insere na variável temporária
     this.listaAlunos.push(this.formulario);
+
+    //grava no localStorage
+    await Storage.set({
+      key: 'students',
+      value: JSON.stringify(this.listaAlunos),
+    });
   }
 
 
