@@ -22,12 +22,11 @@
     <br>
     <ion-button (click)="gravarVetor()" expand="full">Gravar vetor</ion-button>
     <ion-button (click)="apagarVetor()" expand="full">Apagar vetor</ion-button>
-    <ion-button (click)="lerVetor()" expand="full">Ler vetor</ion-button>
-
+    <ion-button (click)="inserirVetor()" expand="full">Inserir</ion-button>
     <ion-input placeholder="Nome" [(ngModel)]="formulario.nome">Nome</ion-input>
     <ion-input placeholder="Telefone" [(ngModel)]="formulario.telefone">Telefone</ion-input>
 
-    <ion-button (click)="inserirVetor()" expand="full">Inserir</ion-button>
+    
 
 
     <ion-list>
@@ -35,7 +34,7 @@
         <ion-label>{{aluno.nome}}</ion-label>
         <p>{{aluno.telefone}}</p>
       </ion-item>
-  </ion-list>
+    </ion-list>
 
   </div>
 </ion-content>

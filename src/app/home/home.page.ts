@@ -71,11 +71,13 @@ export class HomePage {
       key: 'students',
       value: JSON.stringify(this.alunos),
     });
+    this.lerVetor();
   }
 
   async apagarVetor() {
     alert(`Removido!`);
     await Storage.remove({ key: 'students' });
+    this.lerVetor();
   }
 
   listaAlunos: any = [];
@@ -85,20 +87,30 @@ export class HomePage {
   }
 
   formulario: any = {nome: '', telefone: '' };
+  
   async inserirVetor() {
+  
     //faz a leitura do localStorage
     const { value } = await Storage.get({ key: 'students' });
     this.listaAlunos = JSON.parse(value);
+
+    //verifica se estava vazio
+    if(this.listaAlunos==null){
+      this.listaAlunos=[];
+    }
     
     //insere na variável temporária
-    this.listaAlunos.push(this.formulario);
+    this.listaAlunos.push({nome: this.formulario.nome,telefone: this.formulario.telefone});
 
     //grava no localStorage
     await Storage.set({
       key: 'students',
       value: JSON.stringify(this.listaAlunos),
     });
+    this.formulario.nome='';
+    this.formulario.telefone='';
+    this.lerVetor();
   }
-
+  
 
 }
