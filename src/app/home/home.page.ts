@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 /*
 INSTALAR:-------------------------------
+LOCAL STORAGE
 npm install @capacitor/storage
 npx cap sync
+https://www.youtube.com/watch?v=ZHwene3NtxY
+https://capacitorjs.com/docs/apis/storage
 ----------------------------------------
 */
 import { Storage } from '@capacitor/storage';
